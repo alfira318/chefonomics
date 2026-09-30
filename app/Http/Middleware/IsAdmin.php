@@ -11,7 +11,7 @@ class IsAdmin
     public function handle(Request $request, Closure $next)
     {
         // Hanya izinkan jika role adalah admin atau guru
-        if (Auth::check() && in_array(Auth::user()->role, ['admin', 'guru'])) {
+        if (Auth::check() && in_array(strtolower(Auth::user()->role ?? ''), ['admin', 'guru'])) {
             return $next($request);
         }
 

@@ -37,4 +37,7 @@ Route::middleware(IsLoggedIn::class)->group(function () {
         Route::get('/moderasi', fn() => view('admin.moderasi'))->name('moderasi');
     });
 
+    // Alias /moderasi agar siswa yang coba akses /moderasi langsung diproses oleh middleware IsAdmin
+    Route::middleware(IsAdmin::class)->get('/moderasi', fn() => redirect()->route('admin.moderasi'));
+
 });

@@ -247,5 +247,4 @@
             </button>
         </div>
     </div>
-
 @endsection
